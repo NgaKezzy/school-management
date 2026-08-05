@@ -12,10 +12,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        // Nạp dữ liệu ban đầu từ các file JSON vào bộ nhớ.
         List<Student> studentList = MockDataLoader.getStudents();
         List<Lecturer> lecturerList = MockDataLoader.getLecturers();
         List<Staff> staffList = MockDataLoader.getStaff();
 
+        // Chỉ tạo một Scanner và truyền xuống các service để dùng chung.
         Scanner scanner = new Scanner(System.in);
         DashboardService.run(
                 studentList,

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class Lecturer extends Person {
+    // Không cần constructor rỗng vì Jackson đã biết cách tạo Lecturer qua @JsonCreator.
     @JsonCreator
     public Lecturer(@JsonProperty("id") String id,
                     @JsonProperty("fullName") String fullName,

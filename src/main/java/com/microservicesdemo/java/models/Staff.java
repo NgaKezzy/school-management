@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Staff {
+    // Tên trong @JsonProperty phải khớp với các key của staff.json.
     @JsonCreator
     public Staff(@JsonProperty("id") String id,
                  @JsonProperty("department") String department,

@@ -11,10 +11,16 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+/**
+ * Đọc dữ liệu mẫu trong thư mục src/main/resources/mock và chuyển JSON thành model Java.
+ * Đây là utility class nên chỉ cung cấp các phương thức static và không cho phép tạo object.
+ */
 public final class MockDataLoader {
+    // Dùng chung một ObjectMapper để không phải cấu hình lại mỗi lần đọc file.
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
+        // Ngày trong tất cả file mock có định dạng ngày-tháng-năm, ví dụ 15-03-2006.
         OBJECT_MAPPER.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
     }
 
@@ -43,6 +49,7 @@ public final class MockDataLoader {
     }
 
     private static <T> T readData(String resourcePath, TypeReference<T> typeReference) throws IOException {
+        // try-with-resources tự đóng InputStream sau khi đọc xong hoặc khi có lỗi.
         try (InputStream inputStream = MockDataLoader.class.getResourceAsStream(resourcePath)) {
             if (inputStream == null) {
                 throw new IllegalStateException("Không tìm thấy " + resourcePath);

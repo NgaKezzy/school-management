@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class Student extends Person{
+    // Jackson gọi constructor này và ánh xạ từng key JSON qua @JsonProperty.
     @JsonCreator
     public Student(@JsonProperty("id") String id,
                    @JsonProperty("fullName") String fullName,

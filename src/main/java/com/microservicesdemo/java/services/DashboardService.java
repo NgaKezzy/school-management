@@ -7,6 +7,9 @@ import com.microservicesdemo.java.models.Student;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Điều khiển menu console chính và chuyển người dùng đến từng nhóm chức năng.
+ */
 public final class DashboardService {
     private DashboardService() {
     }
@@ -17,6 +20,7 @@ public final class DashboardService {
             List<Staff> staffList,
             Scanner scanner
     ) {
+        // Vòng lặp chỉ kết thúc khi người dùng chọn 0 ở dashboard chính.
         boolean running = true;
         while (running) {
             printMainMenu();
@@ -40,6 +44,7 @@ public final class DashboardService {
     }
 
     private static void showStudentMenu(List<Student> studentList, Scanner scanner) {
+        // Menu con có vòng lặp riêng để thao tác nhiều lần mà không quay về dashboard.
         boolean inStudentMenu = true;
         while (inStudentMenu) {
             System.out.println("\n---------- QUẢN LÝ SINH VIÊN ----------");
@@ -93,6 +98,7 @@ public final class DashboardService {
     }
 
     private static int readMenuChoice(Scanner scanner, String message) {
+        // Đọc dưới dạng String rồi tự chuyển kiểu để tránh lỗi nextInt() bỏ sót ký tự xuống dòng.
         while (true) {
             System.out.print(message);
             String value = scanner.nextLine().trim();

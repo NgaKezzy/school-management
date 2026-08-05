@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Chứa các thao tác thêm, sửa, xoá, hiển thị và tìm kiếm sinh viên trên console.
+ * Các thay đổi hiện chỉ tác động đến List trong bộ nhớ, chưa ghi ngược vào file JSON.
+ */
 public final class StudentInputService {
     private StudentInputService() {
     }
@@ -18,6 +22,7 @@ public final class StudentInputService {
             List<Student> studentList,
             Scanner scanner
     ) {
+        // Dùng exception nội bộ để có thể huỷ ngay cả khi đang nhập giữa chừng.
         try {
             return addStudent(studentList, scanner);
         } catch (InputCancelledException exception) {
@@ -82,6 +87,8 @@ public final class StudentInputService {
         }
 
         System.out.println("Nhập lại thông tin cho " + student.getId() + ":");
+
+        // Đọc hết vào biến tạm trước; nếu người dùng huỷ thì object gốc chưa bị thay đổi.
         String fullName = readRequiredText(scanner, "Họ và tên: ");
         Date dateOfBirth = readDate(scanner, "Ngày sinh (dd-MM-yyyy): ");
         String gender = readRequiredText(scanner, "Giới tính: ");
@@ -94,6 +101,7 @@ public final class StudentInputService {
         double gpa = readDouble(scanner, "GPA: ");
         String academicStatus = readRequiredText(scanner, "Trạng thái học tập: ");
 
+        // Chỉ cập nhật object sau khi toàn bộ dữ liệu đã được nhập hợp lệ.
         student.setFullName(fullName);
         student.setDateOfBirth(dateOfBirth);
         student.setGender(gender);
@@ -133,6 +141,7 @@ public final class StudentInputService {
         }
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        // Tính độ rộng theo nội dung dài nhất để các cột luôn thẳng hàng.
         int nameWidth = Math.max(
                 "HỌ VÀ TÊN".length(),
                 studentList.stream().mapToInt(student -> student.getFullName().length()).max().orElse(0)
@@ -199,6 +208,7 @@ public final class StudentInputService {
     }
 
     private static String normalizeText(String value) {
+        // Bỏ dấu và chuyển về chữ thường để "nguyen" có thể khớp với "Nguyễn".
         return Normalizer.normalize(value, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}+", "")
                 .replace('đ', 'd')
@@ -213,6 +223,7 @@ public final class StudentInputService {
         }
 
         showAllStudents(studentList);
+        // Người dùng nhìn thấy STT từ 1, còn List của Java sử dụng index bắt đầu từ 0.
         while (true) {
             int selectedIndex = readInt(scanner, message + " (1-" + studentList.size() + "): ");
             if (selectedIndex >= 1 && selectedIndex <= studentList.size()) {
@@ -223,6 +234,7 @@ public final class StudentInputService {
     }
 
     private static String generateNextStudentId(List<Student> studentList) {
+        // Lấy phần số lớn nhất của các ID dạng STUxxx rồi tăng thêm 1.
         int maxId = studentList.stream()
                 .map(Student::getId)
                 .filter(id -> id != null && id.matches("STU\\d+"))
@@ -237,6 +249,7 @@ public final class StudentInputService {
         while (true) {
             System.out.print(message);
             String value = scanner.nextLine().trim();
+            // Quy ước chung: nhập 0 tại bất kỳ trường nào sẽ huỷ thao tác hiện tại.
             if (value.equals("0")) {
                 throw new InputCancelledException();
             }
@@ -249,6 +262,7 @@ public final class StudentInputService {
 
     private static Date readDate(Scanner scanner, String message) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        // Không cho phép Java tự sửa ngày sai, ví dụ 31-02 thành một ngày trong tháng 3.
         dateFormat.setLenient(false);
 
         while (true) {
@@ -283,6 +297,7 @@ public final class StudentInputService {
         }
     }
 
+    /** Exception chỉ dùng nội bộ để thoát nhanh khỏi chuỗi bước nhập liệu. */
     private static final class InputCancelledException extends RuntimeException {
     }
 }

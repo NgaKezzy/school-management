@@ -2,6 +2,10 @@ package com.microservicesdemo.java.models;
 
 import java.util.Date;
 
+ /**
+  * Lớp cha chứa các thông tin cá nhân dùng chung cho Student và Lecturer.
+  * Person là abstract vì hệ thống không tạo một người chung chung trực tiếp.
+  */
  public abstract class Person {
      public Person(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
                    String address) {
