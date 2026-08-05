@@ -1,17 +1,30 @@
-package com.microservicesdemo.java;
+package com.microservicesdemo.java;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.microservicesdemo.java.models.Student;
+
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Student student = new Student(
+                "SV001",
+                "Nguyễn Văn An",
+                new Date(),
+                "Nam",
+                "0987654321",
+                "an@gmail.com",
+                "Hà Nội",
+                "Công nghệ thông tin",
+                "Khoa CNTT",
+                "CNTT01",
+                2024,
+                8.5,
+                "Đang học"
+        );
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        System.out.println(student.getId());
+        System.out.println(student.getFullName());
+        System.out.println(student.getMajor());
+        System.out.println(student.getGpa());
     }
 }
