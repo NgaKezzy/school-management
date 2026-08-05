@@ -1,0 +1,27 @@
+[
+  {
+    "id": "STAFF001",
+    "department": "Bộ môn Kỹ thuật phần mềm",
+    "salary": 25000000
+  },
+  {
+    "id": "STAFF002",
+    "department": "Bộ môn Quản trị kinh doanh",
+    "salary": 21000000
+  },
+  {
+    "id": "STAFF003",
+    "department": "Bộ môn Quản trị kinh doanh",
+    "salary": 24000000
+  },
+  {
+    "id": "STAFF004",
+    "department": "Bộ môn Kế toán",
+    "salary": 19500000
+  },
+  {
+    "id": "STAFF005",
+    "department": "Bộ môn Ngôn ngữ Anh",
+    "salary": 20000000
+  }
+]

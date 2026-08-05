@@ -1,0 +1,107 @@
+[
+  {
+    "id": "LEC001",
+    "fullName": "Hoàng Quốc Hùng",
+    "dateOfBirth": "1982-05-12",
+    "gender": "Nam",
+    "phoneNumber": "0902000001",
+    "email": "hung.hoang@school.edu.vn",
+    "address": "Hà Nội",
+    "lecturerCode": "GV001",
+    "faculty": "Khoa Công nghệ thông tin",
+    "department": "Bộ môn Kỹ thuật phần mềm",
+    "academicDegree": "Tiến sĩ",
+    "academicTitle": "Giảng viên chính",
+    "specialization": "Kỹ thuật phần mềm",
+    "salary": 25000000,
+    "yearsOfExperience": 18,
+    "staffId": "STAFF001",
+    "classRoomIds": [
+      "CLS001"
+    ]
+  },
+  {
+    "id": "LEC002",
+    "fullName": "Vũ Ngọc Lan",
+    "dateOfBirth": "1987-09-18",
+    "gender": "Nữ",
+    "phoneNumber": "0902000002",
+    "email": "lan.vu@school.edu.vn",
+    "address": "Hà Nội",
+    "lecturerCode": "GV002",
+    "faculty": "Khoa Kinh tế",
+    "department": "Bộ môn Quản trị kinh doanh",
+    "academicDegree": "Thạc sĩ",
+    "academicTitle": "Giảng viên",
+    "specialization": "Quản trị chiến lược",
+    "salary": 21000000,
+    "yearsOfExperience": 12,
+    "staffId": "STAFF002",
+    "classRoomIds": [
+      "CLS002"
+    ]
+  },
+  {
+    "id": "LEC003",
+    "fullName": "Trần Đức Minh",
+    "dateOfBirth": "1985-02-25",
+    "gender": "Nam",
+    "phoneNumber": "0902000003",
+    "email": "minh.tran@school.edu.vn",
+    "address": "Đà Nẵng",
+    "lecturerCode": "GV003",
+    "faculty": "Khoa Kinh tế",
+    "department": "Bộ môn Quản trị kinh doanh",
+    "academicDegree": "Tiến sĩ",
+    "academicTitle": "Giảng viên chính",
+    "specialization": "Marketing",
+    "salary": 24000000,
+    "yearsOfExperience": 15,
+    "staffId": "STAFF003",
+    "classRoomIds": [
+      "CLS003"
+    ]
+  },
+  {
+    "id": "LEC004",
+    "fullName": "Nguyễn Thị Mai",
+    "dateOfBirth": "1990-06-14",
+    "gender": "Nữ",
+    "phoneNumber": "0902000004",
+    "email": "mai.nguyen@school.edu.vn",
+    "address": "Thành phố Hồ Chí Minh",
+    "lecturerCode": "GV004",
+    "faculty": "Khoa Kinh tế",
+    "department": "Bộ môn Kế toán",
+    "academicDegree": "Thạc sĩ",
+    "academicTitle": "Giảng viên",
+    "specialization": "Kế toán doanh nghiệp",
+    "salary": 19500000,
+    "yearsOfExperience": 9,
+    "staffId": "STAFF004",
+    "classRoomIds": [
+      "CLS004"
+    ]
+  },
+  {
+    "id": "LEC005",
+    "fullName": "Phạm Anh Thư",
+    "dateOfBirth": "1988-10-03",
+    "gender": "Nữ",
+    "phoneNumber": "0902000005",
+    "email": "thu.pham@school.edu.vn",
+    "address": "Cần Thơ",
+    "lecturerCode": "GV005",
+    "faculty": "Khoa Ngoại ngữ",
+    "department": "Bộ môn Ngôn ngữ Anh",
+    "academicDegree": "Thạc sĩ",
+    "academicTitle": "Giảng viên",
+    "specialization": "Ngôn ngữ học ứng dụng",
+    "salary": 20000000,
+    "yearsOfExperience": 10,
+    "staffId": "STAFF005",
+    "classRoomIds": [
+      "CLS005"
+    ]
+  }
+]

@@ -1,14 +1,31 @@
 package com.microservicesdemo.java.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Lecturer extends Person {
-    public Lecturer(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
-                    String address, String lecturerCode, String faculty, String department, String academicDegree,
-                    String academicTitle, String specialization, double salary, int yearsOfExperience,
-                    String staffId, List<String> classRoomIds) {
+    @JsonCreator
+    public Lecturer(@JsonProperty("id") String id,
+                    @JsonProperty("fullName") String fullName,
+                    @JsonProperty("dateOfBirth") Date dateOfBirth,
+                    @JsonProperty("gender") String gender,
+                    @JsonProperty("phoneNumber") String phoneNumber,
+                    @JsonProperty("email") String email,
+                    @JsonProperty("address") String address,
+                    @JsonProperty("lecturerCode") String lecturerCode,
+                    @JsonProperty("faculty") String faculty,
+                    @JsonProperty("department") String department,
+                    @JsonProperty("academicDegree") String academicDegree,
+                    @JsonProperty("academicTitle") String academicTitle,
+                    @JsonProperty("specialization") String specialization,
+                    @JsonProperty("salary") double salary,
+                    @JsonProperty("yearsOfExperience") int yearsOfExperience,
+                    @JsonProperty("staffId") String staffId,
+                    @JsonProperty("classRoomIds") List<String> classRoomIds) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.lecturerCode = lecturerCode;
         this.faculty = faculty;

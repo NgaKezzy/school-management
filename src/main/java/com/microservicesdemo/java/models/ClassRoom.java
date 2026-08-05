@@ -1,10 +1,17 @@
 package com.microservicesdemo.java.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClassRoom {
-    public ClassRoom(String id, String className, String homeroomLecturerId, List<String> studentIds) {
+    @JsonCreator
+    public ClassRoom(@JsonProperty("id") String id,
+                     @JsonProperty("className") String className,
+                     @JsonProperty("homeroomLecturerId") String homeroomLecturerId,
+                     @JsonProperty("studentIds") List<String> studentIds) {
         setId(id);
         this.className = className;
         setHomeroomLecturerId(homeroomLecturerId);

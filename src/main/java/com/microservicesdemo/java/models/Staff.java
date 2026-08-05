@@ -1,7 +1,13 @@
 package com.microservicesdemo.java.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Staff {
-    public Staff(String id, String department, double salary) {
+    @JsonCreator
+    public Staff(@JsonProperty("id") String id,
+                 @JsonProperty("department") String department,
+                 @JsonProperty("salary") double salary) {
         setId(id);
         this.department = department;
         this.salary = salary;

@@ -1,11 +1,25 @@
 package com.microservicesdemo.java.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Student extends Person{
-    public Student(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
-                   String address, String major, String faculty, String classRoomId, int enrollmentYear, double gpa,
-                   String academicStatus) {
+    @JsonCreator
+    public Student(@JsonProperty("id") String id,
+                   @JsonProperty("fullName") String fullName,
+                   @JsonProperty("dateOfBirth") Date dateOfBirth,
+                   @JsonProperty("gender") String gender,
+                   @JsonProperty("phoneNumber") String phoneNumber,
+                   @JsonProperty("email") String email,
+                   @JsonProperty("address") String address,
+                   @JsonProperty("major") String major,
+                   @JsonProperty("faculty") String faculty,
+                   @JsonProperty("classRoomId") String classRoomId,
+                   @JsonProperty("enrollmentYear") int enrollmentYear,
+                   @JsonProperty("gpa") double gpa,
+                   @JsonProperty("academicStatus") String academicStatus) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.major = major;
         this.faculty = faculty;

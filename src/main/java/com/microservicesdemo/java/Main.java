@@ -1,30 +1,24 @@
-package com.microservicesdemo.java;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+package com.microservicesdemo.java;
 
+import com.microservicesdemo.java.data.MockDataLoader;
+import com.microservicesdemo.java.models.ClassRoom;
+import com.microservicesdemo.java.models.Lecturer;
+import com.microservicesdemo.java.models.Staff;
 import com.microservicesdemo.java.models.Student;
 
-import java.util.Date;
+import java.io.IOException;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        Student student = new Student(
-                "SV001",
-                "Nguyễn Văn An",
-                new Date(),
-                "Nam",
-                "0987654321",
-                "an@gmail.com",
-                "Hà Nội",
-                "Công nghệ thông tin",
-                "Khoa CNTT",
-                "CNTT01",
-                2024,
-                8.5,
-                "Đang học"
-        );
+    public static void main(String[] args) throws IOException {
+        List<Student> studentList = MockDataLoader.getStudents();
+        List<ClassRoom> classRoomList = MockDataLoader.getClassRooms();
+        List<Lecturer> lecturerList = MockDataLoader.getLecturers();
+        List<Staff> staffList = MockDataLoader.getStaff();
 
-        System.out.println(student.getId());
-        System.out.println(student.getFullName());
-        System.out.println(student.getMajor());
-        System.out.println(student.getGpa());
+        System.out.println("Students: " + studentList.size());
+        System.out.println("Class rooms: " + classRoomList.size());
+        System.out.println("Lecturers: " + lecturerList.size());
+        System.out.println("Staff: " + staffList.size());
     }
 }
