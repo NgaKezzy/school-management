@@ -2,7 +2,7 @@
   {
     "id": "LEC001",
     "fullName": "Hoàng Quốc Hùng",
-    "dateOfBirth": "1982-05-12",
+    "dateOfBirth": "12-05-1982",
     "gender": "Nam",
     "phoneNumber": "0902000001",
     "email": "hung.hoang@school.edu.vn",
@@ -15,15 +15,12 @@
     "specialization": "Kỹ thuật phần mềm",
     "salary": 25000000,
     "yearsOfExperience": 18,
-    "staffId": "STAFF001",
-    "classRoomIds": [
-      "CLS001"
-    ]
+    "staffId": "STAFF001"
   },
   {
     "id": "LEC002",
     "fullName": "Vũ Ngọc Lan",
-    "dateOfBirth": "1987-09-18",
+    "dateOfBirth": "18-09-1987",
     "gender": "Nữ",
     "phoneNumber": "0902000002",
     "email": "lan.vu@school.edu.vn",
@@ -36,15 +33,12 @@
     "specialization": "Quản trị chiến lược",
     "salary": 21000000,
     "yearsOfExperience": 12,
-    "staffId": "STAFF002",
-    "classRoomIds": [
-      "CLS002"
-    ]
+    "staffId": "STAFF002"
   },
   {
     "id": "LEC003",
     "fullName": "Trần Đức Minh",
-    "dateOfBirth": "1985-02-25",
+    "dateOfBirth": "25-02-1985",
     "gender": "Nam",
     "phoneNumber": "0902000003",
     "email": "minh.tran@school.edu.vn",
@@ -57,15 +51,12 @@
     "specialization": "Marketing",
     "salary": 24000000,
     "yearsOfExperience": 15,
-    "staffId": "STAFF003",
-    "classRoomIds": [
-      "CLS003"
-    ]
+    "staffId": "STAFF003"
   },
   {
     "id": "LEC004",
     "fullName": "Nguyễn Thị Mai",
-    "dateOfBirth": "1990-06-14",
+    "dateOfBirth": "14-06-1990",
     "gender": "Nữ",
     "phoneNumber": "0902000004",
     "email": "mai.nguyen@school.edu.vn",
@@ -78,15 +69,12 @@
     "specialization": "Kế toán doanh nghiệp",
     "salary": 19500000,
     "yearsOfExperience": 9,
-    "staffId": "STAFF004",
-    "classRoomIds": [
-      "CLS004"
-    ]
+    "staffId": "STAFF004"
   },
   {
     "id": "LEC005",
     "fullName": "Phạm Anh Thư",
-    "dateOfBirth": "1988-10-03",
+    "dateOfBirth": "03-10-1988",
     "gender": "Nữ",
     "phoneNumber": "0902000005",
     "email": "thu.pham@school.edu.vn",
@@ -99,9 +87,6 @@
     "specialization": "Ngôn ngữ học ứng dụng",
     "salary": 20000000,
     "yearsOfExperience": 10,
-    "staffId": "STAFF005",
-    "classRoomIds": [
-      "CLS005"
-    ]
+    "staffId": "STAFF005"
   }
 ]

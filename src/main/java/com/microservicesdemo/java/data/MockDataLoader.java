@@ -2,7 +2,6 @@ package com.microservicesdemo.java.data;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microservicesdemo.java.models.ClassRoom;
 import com.microservicesdemo.java.models.Lecturer;
 import com.microservicesdemo.java.models.Staff;
 import com.microservicesdemo.java.models.Student;
@@ -16,7 +15,7 @@ public final class MockDataLoader {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
-        OBJECT_MAPPER.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+        OBJECT_MAPPER.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
     }
 
     private MockDataLoader() {
@@ -26,13 +25,6 @@ public final class MockDataLoader {
         return readData(
                 "/mock/students.json",
                 new TypeReference<List<Student>>() {}
-        );
-    }
-
-    public static List<ClassRoom> getClassRooms() throws IOException {
-        return readData(
-                "/mock/classrooms.json",
-                new TypeReference<List<ClassRoom>>() {}
         );
     }
 

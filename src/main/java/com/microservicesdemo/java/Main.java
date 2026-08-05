@@ -1,24 +1,25 @@
 package com.microservicesdemo.java;
 
 import com.microservicesdemo.java.data.MockDataLoader;
-import com.microservicesdemo.java.models.ClassRoom;
-import com.microservicesdemo.java.models.Lecturer;
-import com.microservicesdemo.java.models.Staff;
 import com.microservicesdemo.java.models.Student;
+import com.microservicesdemo.java.services.StudentInputService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         List<Student> studentList = MockDataLoader.getStudents();
-        List<ClassRoom> classRoomList = MockDataLoader.getClassRooms();
-        List<Lecturer> lecturerList = MockDataLoader.getLecturers();
-        List<Staff> staffList = MockDataLoader.getStaff();
 
-        System.out.println("Students: " + studentList.size());
-        System.out.println("Class rooms: " + classRoomList.size());
-        System.out.println("Lecturers: " + lecturerList.size());
-        System.out.println("Staff: " + staffList.size());
+        Scanner scanner = new Scanner(System.in);
+        Student newStudent = StudentInputService.addStudentFromKeyboard(
+                studentList,
+                scanner
+        );
+
+        System.out.println("Sinh viên vừa thêm: "
+                + newStudent.getId() + " - " + newStudent.getFullName());
+        System.out.println("Tổng số sinh viên: " + studentList.size());
     }
 }

@@ -16,14 +16,12 @@ public class Student extends Person{
                    @JsonProperty("address") String address,
                    @JsonProperty("major") String major,
                    @JsonProperty("faculty") String faculty,
-                   @JsonProperty("classRoomId") String classRoomId,
                    @JsonProperty("enrollmentYear") int enrollmentYear,
                    @JsonProperty("gpa") double gpa,
                    @JsonProperty("academicStatus") String academicStatus) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.major = major;
         this.faculty = faculty;
-        setClassRoomId(classRoomId);
         this.enrollmentYear = enrollmentYear;
         this.gpa = gpa;
         this.academicStatus = academicStatus;
@@ -31,7 +29,6 @@ public class Student extends Person{
 
     private String major;
     private String faculty;
-    private String classRoomId;
     private int enrollmentYear;
     private double gpa;
     private String academicStatus;
@@ -50,17 +47,6 @@ public class Student extends Person{
 
     public void setFaculty(String faculty) {
         this.faculty = faculty;
-    }
-
-    public String getClassRoomId() {
-        return classRoomId;
-    }
-
-    public void setClassRoomId(String classRoomId) {
-        if (classRoomId == null || classRoomId.isBlank()) {
-            throw new IllegalArgumentException("Student must belong to a class room");
-        }
-        this.classRoomId = classRoomId;
     }
 
     public int getEnrollmentYear() {

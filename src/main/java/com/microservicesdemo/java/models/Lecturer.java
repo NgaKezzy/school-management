@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Lecturer extends Person {
     @JsonCreator
@@ -24,8 +22,7 @@ public class Lecturer extends Person {
                     @JsonProperty("specialization") String specialization,
                     @JsonProperty("salary") double salary,
                     @JsonProperty("yearsOfExperience") int yearsOfExperience,
-                    @JsonProperty("staffId") String staffId,
-                    @JsonProperty("classRoomIds") List<String> classRoomIds) {
+                    @JsonProperty("staffId") String staffId) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.lecturerCode = lecturerCode;
         this.faculty = faculty;
@@ -36,7 +33,6 @@ public class Lecturer extends Person {
         this.salary = salary;
         this.yearsOfExperience = yearsOfExperience;
         setStaffId(staffId);
-        setClassRoomIds(classRoomIds);
     }
 
     private String lecturerCode;
@@ -48,7 +44,6 @@ public class Lecturer extends Person {
     private double salary;
     private int yearsOfExperience;
     private String staffId;
-    private List<String> classRoomIds;
 
     public String getLecturerCode() {
         return lecturerCode;
@@ -125,20 +120,4 @@ public class Lecturer extends Person {
         this.staffId = staffId;
     }
 
-    public List<String> getClassRoomIds() {
-        return classRoomIds;
-    }
-
-    public void setClassRoomIds(List<String> classRoomIds) {
-        this.classRoomIds = classRoomIds == null ? new ArrayList<>() : new ArrayList<>(classRoomIds);
-    }
-
-    public void addClassRoomId(String classRoomId) {
-        if (classRoomId == null || classRoomId.isBlank()) {
-            throw new IllegalArgumentException("Class room id is required");
-        }
-        if (!classRoomIds.contains(classRoomId)) {
-            classRoomIds.add(classRoomId);
-        }
-    }
 }
