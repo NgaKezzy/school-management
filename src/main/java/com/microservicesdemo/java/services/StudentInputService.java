@@ -4,8 +4,10 @@ import com.microservicesdemo.java.models.Student;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.text.Normalizer;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public final class StudentInputService {
@@ -171,6 +173,37 @@ public final class StudentInputService {
             );
         }
         System.out.println(separator);
+    }
+
+    public static List<Student> searchStudentsByName(List<Student> studentList, Scanner scanner) {
+        try {
+            System.out.println("Nhập 0 để huỷ tìm kiếm.");
+            String keyword = readRequiredText(scanner, "Nhập tên cần tìm: ");
+            String normalizedKeyword = normalizeText(keyword);
+
+            List<Student> result = studentList.stream()
+                    .filter(student -> normalizeText(student.getFullName()).contains(normalizedKeyword))
+                    .toList();
+
+            if (result.isEmpty()) {
+                System.out.println("Không tìm thấy sinh viên có tên chứa: " + keyword);
+            } else {
+                System.out.println("Tìm thấy " + result.size() + " sinh viên:");
+                showAllStudents(result);
+            }
+            return result;
+        } catch (InputCancelledException exception) {
+            System.out.println("Đã huỷ tìm kiếm sinh viên.");
+            return List.of();
+        }
+    }
+
+    private static String normalizeText(String value) {
+        return Normalizer.normalize(value, Normalizer.Form.NFD)
+                .replaceAll("\\p{M}+", "")
+                .replace('đ', 'd')
+                .replace('Đ', 'D')
+                .toLowerCase(Locale.ROOT);
     }
 
     private static Student selectStudent(List<Student> studentList, Scanner scanner, String message) {

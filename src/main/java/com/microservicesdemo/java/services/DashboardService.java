@@ -47,6 +47,7 @@ public final class DashboardService {
             System.out.println("2. Sửa sinh viên");
             System.out.println("3. Xoá sinh viên");
             System.out.println("4. Xem toàn bộ sinh viên");
+            System.out.println("5. Tìm sinh viên theo tên");
             System.out.println("0. Quay lại");
 
             switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
@@ -54,6 +55,7 @@ public final class DashboardService {
                 case 2 -> StudentInputService.updateStudentFromKeyboard(studentList, scanner);
                 case 3 -> StudentInputService.deleteStudentFromKeyboard(studentList, scanner);
                 case 4 -> StudentInputService.showAllStudents(studentList);
+                case 5 -> StudentInputService.searchStudentsByName(studentList, scanner);
                 case 0 -> inStudentMenu = false;
                 default -> System.out.println("Chức năng không hợp lệ.");
             }
