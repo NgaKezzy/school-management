@@ -1,11 +1,14 @@
 package com.microservicesdemo.java.models;
 
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lecturer extends Person {
     public Lecturer(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
                     String address, String lecturerCode, String faculty, String department, String academicDegree,
-                    String academicTitle, String specialization, double salary, int yearsOfExperience) {
+                    String academicTitle, String specialization, double salary, int yearsOfExperience,
+                    String staffId, List<String> classRoomIds) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.lecturerCode = lecturerCode;
         this.faculty = faculty;
@@ -15,6 +18,8 @@ public class Lecturer extends Person {
         this.specialization = specialization;
         this.salary = salary;
         this.yearsOfExperience = yearsOfExperience;
+        setStaffId(staffId);
+        setClassRoomIds(classRoomIds);
     }
 
     private String lecturerCode;
@@ -25,6 +30,8 @@ public class Lecturer extends Person {
     private String specialization;
     private double salary;
     private int yearsOfExperience;
+    private String staffId;
+    private List<String> classRoomIds;
 
     public String getLecturerCode() {
         return lecturerCode;
@@ -88,5 +95,33 @@ public class Lecturer extends Person {
 
     public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        if (staffId == null || staffId.isBlank()) {
+            throw new IllegalArgumentException("Lecturer must reference a staff record");
+        }
+        this.staffId = staffId;
+    }
+
+    public List<String> getClassRoomIds() {
+        return classRoomIds;
+    }
+
+    public void setClassRoomIds(List<String> classRoomIds) {
+        this.classRoomIds = classRoomIds == null ? new ArrayList<>() : new ArrayList<>(classRoomIds);
+    }
+
+    public void addClassRoomId(String classRoomId) {
+        if (classRoomId == null || classRoomId.isBlank()) {
+            throw new IllegalArgumentException("Class room id is required");
+        }
+        if (!classRoomIds.contains(classRoomId)) {
+            classRoomIds.add(classRoomId);
+        }
     }
 }

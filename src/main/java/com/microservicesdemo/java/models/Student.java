@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Student extends Person{
     public Student(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
-                   String address, String major, String faculty, String className, int enrollmentYear, double gpa,
+                   String address, String major, String faculty, String classRoomId, int enrollmentYear, double gpa,
                    String academicStatus) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.major = major;
         this.faculty = faculty;
-        this.className = className;
+        setClassRoomId(classRoomId);
         this.enrollmentYear = enrollmentYear;
         this.gpa = gpa;
         this.academicStatus = academicStatus;
@@ -17,7 +17,7 @@ public class Student extends Person{
 
     private String major;
     private String faculty;
-    private String className;
+    private String classRoomId;
     private int enrollmentYear;
     private double gpa;
     private String academicStatus;
@@ -38,12 +38,15 @@ public class Student extends Person{
         this.faculty = faculty;
     }
 
-    public String getClassName() {
-        return className;
+    public String getClassRoomId() {
+        return classRoomId;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClassRoomId(String classRoomId) {
+        if (classRoomId == null || classRoomId.isBlank()) {
+            throw new IllegalArgumentException("Student must belong to a class room");
+        }
+        this.classRoomId = classRoomId;
     }
 
     public int getEnrollmentYear() {

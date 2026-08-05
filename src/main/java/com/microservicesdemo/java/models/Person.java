@@ -5,7 +5,7 @@ import java.util.Date;
  public abstract class Person {
      public Person(String id, String fullName, Date dateOfBirth, String gender, String phoneNumber, String email,
                    String address) {
-         this.id = id;
+         setId(id);
          this.fullName = fullName;
          this.dateOfBirth = dateOfBirth;
          this.gender = gender;
@@ -27,6 +27,9 @@ import java.util.Date;
      }
 
      public void setId(String id) {
+         if (id == null || id.isBlank()) {
+             throw new IllegalArgumentException("Person id is required");
+         }
          this.id = id;
      }
 
