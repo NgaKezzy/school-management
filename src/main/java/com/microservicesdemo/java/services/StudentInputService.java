@@ -207,6 +207,43 @@ public final class StudentInputService {
         }
     }
 
+    public static void showAcademicPerformanceStatistics(List<Student> studentList) {
+        int gioi = 0;
+        int kha = 0;
+        int trungBinh = 0;
+        int yeu = 0;
+
+        for (Student student : studentList) {
+            double gpa = student.getGpa();
+
+            if (gpa >= 8.0) {
+                gioi++;
+            } else if (gpa >= 6.5) {
+                kha++;
+            } else if (gpa >= 5.0) {
+                trungBinh++;
+            } else {
+                yeu++;
+            }
+        }
+
+        int tongSo = studentList.size();
+        double phanTramGioi = tongSo == 0 ? 0 : gioi * 100.0 / tongSo;
+        double phanTramKha = tongSo == 0 ? 0 : kha * 100.0 / tongSo;
+        double phanTramTrungBinh = tongSo == 0 ? 0 : trungBinh * 100.0 / tongSo;
+        double phanTramYeu = tongSo == 0 ? 0 : yeu * 100.0 / tongSo;
+
+        System.out.println("\n========== THỐNG KÊ XẾP LOẠI HỌC LỰC ==========");
+        System.out.printf("%-15s | %-10s | %-10s%n", "Xếp loại", "Số lượng", "Tỷ lệ");
+        System.out.println("-------------------------------------------");
+        System.out.printf("%-15s | %-10d | %6.2f%%%n", "Giỏi", gioi, phanTramGioi);
+        System.out.printf("%-15s | %-10d | %6.2f%%%n", "Khá", kha, phanTramKha);
+        System.out.printf("%-15s | %-10d | %6.2f%%%n", "Trung bình", trungBinh, phanTramTrungBinh);
+        System.out.printf("%-15s | %-10d | %6.2f%%%n", "Yếu", yeu, phanTramYeu);
+        System.out.println("-------------------------------------------");
+        System.out.println("Tổng số sinh viên: " + tongSo);
+    }
+
     private static String normalizeText(String value) {
         // Bỏ dấu và chuyển về chữ thường để "nguyen" có thể khớp với "Nguyễn".
         return Normalizer.normalize(value, Normalizer.Form.NFD)
@@ -279,7 +316,13 @@ public final class StudentInputService {
         while (true) {
             String value = readRequiredText(scanner, message);
             try {
-                return Integer.parseInt(value);
+                int number = Integer.parseInt(value);
+
+                if (number >0) {
+                    return number;
+                }
+
+                System.out.println("Số phải lớn hơn 0.");
             } catch (NumberFormatException exception) {
                 System.out.println("Vui lòng nhập một số nguyên hợp lệ.");
             }

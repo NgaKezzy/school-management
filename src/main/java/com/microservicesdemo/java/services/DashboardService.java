@@ -53,7 +53,8 @@ public final class DashboardService {
             System.out.println("3. Xoá sinh viên");
             System.out.println("4. Xem toàn bộ sinh viên");
             System.out.println("5. Tìm sinh viên theo tên");
-            System.out.println("0. Quay lại");
+            System.out.println("6. Thống kê xếp loại học lực");
+            System.out.println("7. Quay lại");
 
             switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
                 case 1 -> StudentInputService.addStudentFromKeyboard(studentList, scanner);
@@ -61,7 +62,12 @@ public final class DashboardService {
                 case 3 -> StudentInputService.deleteStudentFromKeyboard(studentList, scanner);
                 case 4 -> StudentInputService.showAllStudents(studentList);
                 case 5 -> StudentInputService.searchStudentsByName(studentList, scanner);
-                case 0 -> inStudentMenu = false;
+                case 6 -> {
+                    StudentInputService.showAcademicPerformanceStatistics(studentList);
+                    System.out.print("Nhấn Enter để quay lại menu...");
+                    scanner.nextLine();
+                }
+                case 7 -> inStudentMenu = false;
                 default -> System.out.println("Chức năng không hợp lệ.");
             }
         }
