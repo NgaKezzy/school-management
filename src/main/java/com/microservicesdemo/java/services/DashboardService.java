@@ -90,17 +90,7 @@ public final class DashboardService {
     }
 
     private static void showStaff(List<Staff> staffList) {
-        System.out.println("\n--------------- NHÂN VIÊN ---------------");
-        for (int index = 0; index < staffList.size(); index++) {
-            Staff staff = staffList.get(index);
-            System.out.printf(
-                    "%d. ID: %s | Phòng ban: %s | Lương: %,.0f%n",
-                    index + 1,
-                    staff.getId(),
-                    staff.getDepartment(),
-                    staff.getSalary()
-            );
-        }
+        StaffDisplayService.showAllStaff(staffList);
     }
 
     private static int readMenuChoice(Scanner scanner, String message) {
