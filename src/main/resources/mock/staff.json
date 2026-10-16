@@ -1,26 +1,56 @@
 [
   {
     "id": "STAFF001",
+    "fullName": "Hoàng Minh Tuấn",
+    "dateOfBirth": "12-05-1985",
+    "gender": "Nam",
+    "phoneNumber": "0912000001",
+    "email": "tuan.hoang@school.edu.vn",
+    "address": "Hà Nội",
     "department": "Bộ môn Kỹ thuật phần mềm",
     "salary": 25000000
   },
   {
     "id": "STAFF002",
+    "fullName": "Nguyễn Thị Lan",
+    "dateOfBirth": "23-09-1990",
+    "gender": "Nữ",
+    "phoneNumber": "0912000002",
+    "email": "lan.nguyen@school.edu.vn",
+    "address": "Hải Phòng",
     "department": "Bộ môn Quản trị kinh doanh",
     "salary": 21000000
   },
   {
     "id": "STAFF003",
+    "fullName": "Trần Quốc Bảo",
+    "dateOfBirth": "05-01-1988",
+    "gender": "Nam",
+    "phoneNumber": "0912000003",
+    "email": "bao.tran@school.edu.vn",
+    "address": "Đà Nẵng",
     "department": "Bộ môn Quản trị kinh doanh",
     "salary": 24000000
   },
   {
     "id": "STAFF004",
+    "fullName": "Lê Thị Mai",
+    "dateOfBirth": "17-11-1992",
+    "gender": "Nữ",
+    "phoneNumber": "0912000004",
+    "email": "mai.le@school.edu.vn",
+    "address": "Thành phố Hồ Chí Minh",
     "department": "Bộ môn Kế toán",
     "salary": 19500000
   },
   {
     "id": "STAFF005",
+    "fullName": "Phạm Văn Đức",
+    "dateOfBirth": "30-07-1987",
+    "gender": "Nam",
+    "phoneNumber": "0912000005",
+    "email": "duc.pham@school.edu.vn",
+    "address": "Cần Thơ",
     "department": "Bộ môn Ngôn ngữ Anh",
     "salary": 20000000
   }

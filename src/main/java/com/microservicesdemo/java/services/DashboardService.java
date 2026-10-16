@@ -11,6 +11,7 @@ import java.util.Scanner;
  * Điều khiển menu console chính và chuyển người dùng đến từng nhóm chức năng.
  */
 public final class DashboardService {
+
     private DashboardService() {
     }
 
@@ -25,11 +26,16 @@ public final class DashboardService {
         while (running) {
             printMainMenu();
             switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
-                case 1 -> showStudentMenu(studentList, scanner);
-                case 2 -> showLecturers(lecturerList);
-                case 3 -> showStaff(staffList);
-                case 0 -> running = false;
-                default -> System.out.println("Chức năng không hợp lệ.");
+                case 1 ->
+                    showStudentMenu(studentList, scanner);
+                case 2 ->
+                    showLecturers(lecturerList);
+                case 3 ->
+                    showStaffMenu(staffList, scanner);
+                case 0 ->
+                    running = false;
+                default ->
+                    System.out.println("Chức năng không hợp lệ.");
             }
         }
         System.out.println("Đã thoát chương trình.");
@@ -39,7 +45,7 @@ public final class DashboardService {
         System.out.println("\n========== SCHOOL DASHBOARD ==========");
         System.out.println("1. Quản lý sinh viên");
         System.out.println("2. Xem giáo viên");
-        System.out.println("3. Xem nhân viên");
+        System.out.println("3. Quản lý nhân viên");
         System.out.println("0. Thoát");
     }
 
@@ -57,18 +63,25 @@ public final class DashboardService {
             System.out.println("7. Quay lại");
 
             switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
-                case 1 -> StudentInputService.addStudentFromKeyboard(studentList, scanner);
-                case 2 -> StudentInputService.updateStudentFromKeyboard(studentList, scanner);
-                case 3 -> StudentInputService.deleteStudentFromKeyboard(studentList, scanner);
-                case 4 -> StudentInputService.showAllStudents(studentList);
-                case 5 -> StudentInputService.searchStudentsByName(studentList, scanner);
+                case 1 ->
+                    StudentInputService.addStudentFromKeyboard(studentList, scanner);
+                case 2 ->
+                    StudentInputService.updateStudentFromKeyboard(studentList, scanner);
+                case 3 ->
+                    StudentInputService.deleteStudentFromKeyboard(studentList, scanner);
+                case 4 ->
+                    StudentInputService.showAllStudents(studentList);
+                case 5 ->
+                    StudentInputService.searchStudentsByName(studentList, scanner);
                 case 6 -> {
                     StudentInputService.showAcademicPerformanceStatistics(studentList);
                     System.out.print("Nhấn Enter để quay lại menu...");
                     scanner.nextLine();
                 }
-                case 7 -> inStudentMenu = false;
-                default -> System.out.println("Chức năng không hợp lệ.");
+                case 7 ->
+                    inStudentMenu = false;
+                default ->
+                    System.out.println("Chức năng không hợp lệ.");
             }
         }
     }
@@ -89,8 +102,41 @@ public final class DashboardService {
         }
     }
 
-    private static void showStaff(List<Staff> staffList) {
-        StaffDisplayService.showAllStaff(staffList);
+    private static void showStaffMenu(List<Staff> staffList, Scanner scanner) {
+        // Menu con có vòng lặp riêng để thao tác nhiều lần mà không quay về dashboard.
+        boolean inStaffMenu = true;
+        while (inStaffMenu) {
+            System.out.println("\n---------- QUẢN LÝ NHÂN VIÊN ----------");
+            System.out.println("1. Thêm nhân viên");
+            System.out.println("2. Sửa nhân viên");
+            System.out.println("3. Xoá nhân viên");
+            System.out.println("4. Xem toàn bộ nhân viên");
+            System.out.println("5. Tìm nhân viên theo tên");
+            System.out.println("6. Thống kê lương theo phòng ban");
+            System.out.println("7. Quay lại");
+
+            switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
+                case 1 ->
+                    StaffDisplayService.addStaffFromKeyboard(staffList, scanner);
+                case 2 ->
+                    StaffDisplayService.updateStaffFromKeyboard(staffList, scanner);
+                case 3 ->
+                    StaffDisplayService.deleteStaffFromKeyboard(staffList, scanner);
+                case 4 ->
+                    StaffDisplayService.showAllStaff(staffList);
+                case 5 ->
+                    StaffDisplayService.searchStaffByName(staffList, scanner);
+                case 6 -> {
+                    StaffDisplayService.showSalaryStatistics(staffList);
+                    System.out.print("Nhấn Enter để quay lại menu...");
+                    scanner.nextLine();
+                }
+                case 7 ->
+                    inStaffMenu = false;
+                default ->
+                    System.out.println("Chức năng không hợp lệ.");
+            }
+        }
     }
 
     private static int readMenuChoice(Scanner scanner, String message) {
