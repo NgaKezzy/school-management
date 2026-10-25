@@ -29,7 +29,7 @@ public final class DashboardService {
                 case 1 ->
                     showStudentMenu(studentList, scanner);
                 case 2 ->
-                    showLecturers(lecturerList);
+                    showLecturers(lecturerList, scanner);
                 case 3 ->
                     showStaffMenu(staffList, scanner);
                 case 0 ->
