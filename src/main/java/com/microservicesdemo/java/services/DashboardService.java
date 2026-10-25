@@ -86,19 +86,33 @@ public final class DashboardService {
         }
     }
 
-    private static void showLecturers(List<Lecturer> lecturerList) {
-        System.out.println("\n--------------- GIÁO VIÊN ---------------");
-        for (int index = 0; index < lecturerList.size(); index++) {
-            Lecturer lecturer = lecturerList.get(index);
-            System.out.printf(
-                    "%d. %s | ID: %s | Mã GV: %s | Khoa: %s | Staff ID: %s%n",
-                    index + 1,
-                    lecturer.getFullName(),
-                    lecturer.getId(),
-                    lecturer.getLecturerCode(),
-                    lecturer.getFaculty(),
-                    lecturer.getStaffId()
-            );
+    private static void showLecturers(List<Lecturer> lecturerList, Scanner scanner) {
+        boolean inLecturerMenu = true;
+        while (inLecturerMenu) {
+            System.out.println("\n---------- QUẢN LÝ GIÁO VIÊN ----------");
+            System.out.println("1. Thêm giáo viên");
+            System.out.println("2. Sửa giáo viên");
+            System.out.println("3. Xoá giáo viên");
+            System.out.println("4. Xem toàn bộ giáo viên");
+            System.out.println("5. Tìm giáo viên theo tên");
+            System.out.println("6. Quay lại");
+
+            switch (readMenuChoice(scanner, "Chọn chức năng: ")) {
+                case 1 ->
+                    LecturerInputService.addLecturerFromKeyboard(lecturerList, scanner);
+                case 2 ->
+                    LecturerInputService.updateLecturerFromKeyboard(lecturerList, scanner);
+                case 3 ->
+                    LecturerInputService.deleteLecturerFromKeyboard(lecturerList, scanner);
+                case 4 ->
+                    LecturerInputService.showAllLecturers(lecturerList);
+                case 5 ->
+                    LecturerInputService.searchLecturersByName(lecturerList, scanner);
+                case 6 ->
+                    inLecturerMenu = false;
+                default ->
+                    System.out.println("Chức năng không hợp lệ.");
+            }
         }
     }
 
