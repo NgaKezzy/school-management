@@ -14,8 +14,7 @@
     "academicTitle": "Giảng viên chính",
     "specialization": "Kỹ thuật phần mềm",
     "salary": 25000000,
-    "yearsOfExperience": 18,
-    "staffId": "STAFF001"
+    "yearsOfExperience": 18
   },
   {
     "id": "LEC002",
@@ -32,8 +31,7 @@
     "academicTitle": "Giảng viên",
     "specialization": "Quản trị chiến lược",
     "salary": 21000000,
-    "yearsOfExperience": 12,
-    "staffId": "STAFF002"
+    "yearsOfExperience": 12
   },
   {
     "id": "LEC003",
@@ -50,8 +48,7 @@
     "academicTitle": "Giảng viên chính",
     "specialization": "Marketing",
     "salary": 24000000,
-    "yearsOfExperience": 15,
-    "staffId": "STAFF003"
+    "yearsOfExperience": 15
   },
   {
     "id": "LEC004",
@@ -68,8 +65,7 @@
     "academicTitle": "Giảng viên",
     "specialization": "Kế toán doanh nghiệp",
     "salary": 19500000,
-    "yearsOfExperience": 9,
-    "staffId": "STAFF004"
+    "yearsOfExperience": 9
   },
   {
     "id": "LEC005",
@@ -86,7 +82,6 @@
     "academicTitle": "Giảng viên",
     "specialization": "Ngôn ngữ học ứng dụng",
     "salary": 20000000,
-    "yearsOfExperience": 10,
-    "staffId": "STAFF005"
+    "yearsOfExperience": 10
   }
 ]

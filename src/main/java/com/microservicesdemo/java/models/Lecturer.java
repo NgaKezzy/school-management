@@ -22,8 +22,7 @@ public class Lecturer extends Person {
                     @JsonProperty("academicTitle") String academicTitle,
                     @JsonProperty("specialization") String specialization,
                     @JsonProperty("salary") double salary,
-                    @JsonProperty("yearsOfExperience") int yearsOfExperience,
-                    @JsonProperty("staffId") String staffId) {
+                    @JsonProperty("yearsOfExperience") int yearsOfExperience) {
         super(id, fullName, dateOfBirth, gender, phoneNumber, email, address);
         this.lecturerCode = lecturerCode;
         this.faculty = faculty;
@@ -33,7 +32,6 @@ public class Lecturer extends Person {
         this.specialization = specialization;
         this.salary = salary;
         this.yearsOfExperience = yearsOfExperience;
-        setStaffId(staffId);
     }
 
     private String lecturerCode;
@@ -44,7 +42,6 @@ public class Lecturer extends Person {
     private String specialization;
     private double salary;
     private int yearsOfExperience;
-    private String staffId;
 
     public String getLecturerCode() {
         return lecturerCode;
@@ -108,17 +105,6 @@ public class Lecturer extends Person {
 
     public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
-    }
-
-    public String getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(String staffId) {
-        if (staffId == null || staffId.isBlank()) {
-            throw new IllegalArgumentException("Lecturer must reference a staff record");
-        }
-        this.staffId = staffId;
     }
 
 }

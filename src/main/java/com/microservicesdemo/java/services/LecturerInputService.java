@@ -38,7 +38,7 @@ public final class LecturerInputService {
         System.out.println("ID giáo viên tự động: " + id);
 
         String fullName = readRequiredText(scanner, "Họ và tên: ");
-        Date dateOfBirth = readDate(scanner, "Ngày sinh (dd-MM-yyyy): ");
+        Date dateOfBirth = readDate(scanner, "Ngày sinh (dd-MM-yyyy hoặc dd/MM/yyyy): ");
         String gender = readRequiredText(scanner, "Giới tính: ");
         String phoneNumber = readRequiredText(scanner, "Số điện thoại: ");
         String email = readRequiredText(scanner, "Email: ");
@@ -51,7 +51,6 @@ public final class LecturerInputService {
         String specialization = readRequiredText(scanner, "Chuyên ngành: ");
         double salary = readDouble(scanner, "Lương: ");
         int yearsOfExperience = readInt(scanner, "Số năm kinh nghiệm: ");
-        String staffId = readRequiredText(scanner, "Staff ID liên kết: ");
 
         Lecturer lecturer = new Lecturer(
                 id,
@@ -68,8 +67,7 @@ public final class LecturerInputService {
                 academicTitle,
                 specialization,
                 salary,
-                yearsOfExperience,
-                staffId
+                yearsOfExperience
         );
 
         lecturerList.add(lecturer);
@@ -98,7 +96,7 @@ public final class LecturerInputService {
         System.out.println("Nhập lại thông tin cho " + lecturer.getId() + ":");
 
         String fullName = readRequiredText(scanner, "Họ và tên: ");
-        Date dateOfBirth = readDate(scanner, "Ngày sinh (dd-MM-yyyy): ");
+        Date dateOfBirth = readDate(scanner, "Ngày sinh (dd-MM-yyyy hoặc dd/MM/yyyy): ");
         String gender = readRequiredText(scanner, "Giới tính: ");
         String phoneNumber = readRequiredText(scanner, "Số điện thoại: ");
         String email = readRequiredText(scanner, "Email: ");
@@ -111,7 +109,6 @@ public final class LecturerInputService {
         String specialization = readRequiredText(scanner, "Chuyên ngành: ");
         double salary = readDouble(scanner, "Lương: ");
         int yearsOfExperience = readInt(scanner, "Số năm kinh nghiệm: ");
-        String staffId = readRequiredText(scanner, "Staff ID liên kết: ");
 
         lecturer.setFullName(fullName);
         lecturer.setDateOfBirth(dateOfBirth);
@@ -127,7 +124,6 @@ public final class LecturerInputService {
         lecturer.setSpecialization(specialization);
         lecturer.setSalary(salary);
         lecturer.setYearsOfExperience(yearsOfExperience);
-        lecturer.setStaffId(staffId);
 
         System.out.println("Đã cập nhật giáo viên " + lecturer.getId());
         return lecturer;
@@ -158,8 +154,6 @@ public final class LecturerInputService {
             System.out.println("Danh sách giáo viên đang trống.");
             return;
         }
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         int nameWidth = Math.max(
                 "HỌ VÀ TÊN".length(),
@@ -281,7 +275,7 @@ public final class LecturerInputService {
         while (true) {
             String value = readRequiredText(scanner, message);
             try {
-                return dateFormat.parse(value);
+                return dateFormat.parse(value.replace('/', '-'));
             } catch (ParseException exception) {
                 System.out.println("Ngày không hợp lệ, vui lòng nhập theo dd-MM-yyyy.");
             }
